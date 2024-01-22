@@ -35,6 +35,7 @@ app.set("view engine", "ejs");
 
 // route prefix
 app.use("", require("./routes/routes"));  
-  app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-  })
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
