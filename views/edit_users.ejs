@@ -1,0 +1,25 @@
+<%- include('layout/header')%>
+<h3>Edit User</h3>
+<div class="editUser">
+<form action="/update/<%=user._id%>" method="post" id="add-form", enctype="multipart/form-data"> 
+    <div class="mb-3">
+        <label for="nameInputEmail1" class="form-label">Name</label>
+        <input type="text" name="name" value="<%=user.name %>" class="form-control" id="exampleInputName" aria-describedby="nameHelp">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" name="email" value="<%= user.email %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputContact" class="form-label">Contact</label>
+      <input type="text" name="phone" value="<%= user.phone %>" class="form-control" id="exampleInputContact">
+    
+    </div>
+    <label class="form-label" for="image">Select Image</label>
+    <input type="file" name="image" class="form-control" id="customFile" />
+    <img src="<%= user.image %>"  width="100" class="img-thumbnail mt-1">
+    <input type="hidden" name="old_image" value="<%= user.image %>">
+    <br/>
+    <button type="submit" name="submit" value="Update User" class="btn btn-primary">Update</button>
+  </form>
+  </div>
+<%- include('layout/footer')%> 
