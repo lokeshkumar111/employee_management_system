@@ -43,8 +43,6 @@ router.post('/add', upload, (req, res) => {
 });
 
 
-
-
 router.get("/", async (req, res) => {
     try {
         const users = await User.find().exec();
@@ -80,49 +78,6 @@ router.get('/edit/:id', async (req, res) => {
     }
 });
 
-// update user route
-// router.post('/update/:id', upload, async (req, res) => {
-//     try {
-//         let id = req.params.id;
-//         let new_image = '';
-
-//         if (req.file) {
-//             new_image = req.file.filename;
-//             // Check if the old image file exists before unlinking
-//             const oldImagePath = "./uploads/" + req.body.old_image;
-//             if (fs.existsSync(oldImagePath)) {
-//                 try {
-//                     fs.unlinkSync(oldImagePath);
-//                 } catch (err) {
-//                     console.log(err);
-//                 }
-//             } else {
-//                 console.log("Old image file not found:", oldImagePath);
-//             }
-//         } else {
-//             new_image = req.body.old_image;
-//         }
-
-//         User.findByIdAndUpdate(id, {
-//             name: req.body.name,
-//             email: req.body.email,
-//             phone: req.body.phone,
-//             image: new_image,
-//         }, (err) => {
-//             if (err) {
-//                 res.json({ message: err.message, type: 'danger' });
-//             } else {
-//                 req.session.message = {
-//                     type: "success",
-//                     message: "User updated successfully",
-//                 };
-//                 res.redirect("/");
-//             }
-//         });
-//     } catch (err) {
-//         console.log("edit does not work");
-//     }
-// });
 // update user route
 router.post('/update/:id', upload, async (req, res) => {
     try {
@@ -197,6 +152,34 @@ router.get('/delete/:id', async (req, res) => {
     }
 });
 
+
+// get login page 
+router.get("/login", async (req, res) => {
+    try {
+        const users = await User.find().exec();
+        res.render('login', {
+            title: "login",
+            users: users,
+        });
+    } catch (err) {
+        console.error("Error while fetching users:", err);
+        res.json({ message: err.message });
+    }
+});
+
+// get signup page  
+router.get("/signup", async (req, res) => {
+    try {
+        const users = await User.find().exec();
+        res.render('signup', {
+            title: "signup",
+            users: users,
+        });
+    } catch (err) {
+        console.error("Error while fetching users:", err);
+        res.json({ message: err.message });
+    }
+});
 
 
 
