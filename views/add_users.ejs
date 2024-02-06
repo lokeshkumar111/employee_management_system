@@ -1,13 +1,13 @@
 <%- include('layout/header')%>
-<h3>Add User</h3>
-<div class="addUser">
+<div class="addUser mt-5 w-50 mx-auto">
+  <h3 class="text-center">Add User</h3>
   <form action="/add" method="post" id="add-form", enctype="multipart/form-data"> 
       <div class="mb-3">
           <label for="nameInputEmail1" class="form-label">Name</label>
           <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      
       </div>
       <div class="mb-3">
         <label for="exampleInputContact" class="form-label">Contact</label>
@@ -16,11 +16,8 @@
       </div>
       <label class="form-label" for="image">Select Image</label>
       <input type="file" name="image" class="form-control" id="customFile" />
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+     
+      <button type="submit" class="btn btn-primary mt-4 mx-auto">Submit</button>
     </form>
 </div>
 <%- include('layout/footer')%> 
